@@ -4,25 +4,24 @@ a-scene {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* El fondo está atrás */
+    z-index: 1; 
 }
 
 #ui-container {
     position: relative;
-    z-index: 10; /* La interfaz está adelante */
+    z-index: 10;
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    pointer-events: none; /* Deja que el usuario "toque" el fondo para rotarlo */
+    pointer-events: none; /
 }
 
 #scanner-frame, #scan-button {
-    pointer-events: auto; /* El botón y el marco sí reciben clics */
+    pointer-events: auto; /
 }
 
-/* Estilo para el video dentro del cuadrito */
 #camera-preview video {
     width: 100%;
     height: 100%;
