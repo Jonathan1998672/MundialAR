@@ -26,6 +26,7 @@ a-scene {
 #scanner-frame,
 #scan-button,
 #re-scan-btn,
+#stats-panel,
 .circle-btn {
     pointer-events: auto;
 }
