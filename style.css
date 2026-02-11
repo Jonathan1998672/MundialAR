@@ -158,3 +158,51 @@ a-scene {
 #close-stats {
     background: #d50000;
 }
+
+#filter-panel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: black;
+    z-index: 3000;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+
+.filter-content { width: 90%; text-align: center; }
+
+.filter-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.filter-controls button {
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background: #007bff;
+    color: white;
+    font-size: 12px;
+}
+
+.f-blur { filter: blur(5px); }
+.f-pixel { filter: contrast(150%) brightness(80%) grayscale(0); image-rendering: pixelated; } /* Efecto visual similar */
+.f-thermal { filter: hue-rotate(180deg) saturate(300%) contrast(150%); }
+.f-saturate { filter: saturate(500%); }
+
+#close-filters {
+    background: #d50000;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 10px;
+    width: 100%;
+}

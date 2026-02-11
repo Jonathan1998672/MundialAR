@@ -67,6 +67,28 @@
     </div>
 </div>
 
+<div id="filter-panel" style="display:none;">
+    <div class="filter-content">
+        <h2>Galería Clips mundiales</h2>
+        
+        <div class="video-container">
+            <video id="world-cup-video" width="100%" loop muted>
+                <source src="uploads/video_mundial.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <div class="filter-controls">
+            <button onclick="applyFilter('none')">Original</button>
+            <button onclick="applyFilter('blur')">Desenfoque</button>
+            <button onclick="applyFilter('pixel')">Pixelado</button>
+            <button onclick="applyFilter('thermal')">Térmico</button>
+            <button onclick="applyFilter('saturate')">Alta Saturación</button>
+        </div>
+
+        <button id="close-filters">Volver al Estadio</button>
+    </div>
+</div>
+
     </div>
 
     <a-scene embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
