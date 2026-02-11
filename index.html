@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoccRender AR - Interfaz</title>
+    <title>SoccRender AR</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
@@ -12,37 +12,31 @@
     <div id="ui-container">
         <div id="scanner-frame">
             <div id="camera-preview"></div>
-            <img src="uploads/scanner.png" id="inner-scanner-icon" alt="Guía">
+            <img src="uploads/scanner.png" id="guide-icon" alt="Guía">
         </div>
 
         <button id="scan-button">
-            <img src="uploads/scanner.png" alt="Icono">
-            <span>COMENZAR ESCANEO</span>
+            <img src="uploads/scanner.png" alt="Scanner Icon">
+            <span>ESCANEAR</span>
         </button>
 
-        <button id="rescan-button" style="display: none;">
-            <img src="uploads/scanner.png" alt="Re-scan">
+        <button id="re-scan-btn" style="display: none;">
+            <img src="uploads/scanner.png" alt="Reiniciar">
         </button>
 
-        <div id="bottom-bar" style="display: none;">
-            <button class="action-btn" id="btn-anim">
-                <img src="uploads/anim-icon.png" alt="Animación">
-            </button>
-            <button class="action-btn" id="btn-stats">
-                <img src="uploads/stats-icon.png" alt="Estadísticas">
-            </button>
-            <button class="action-btn" id="btn-filters">
-                <img src="uploads/filter-icon.png" alt="Filtros">
-            </button>
+        <div id="action-bar" style="display: none;">
+            <div class="circle-btn" id="btn-anim"><img src="uploads/anim-icon.png"></div>
+            <div class="circle-btn" id="btn-stats"><img src="uploads/stats-icon.png"></div>
+            <div class="circle-btn" id="btn-filters"><img src="uploads/filter-icon.png"></div>
         </div>
     </div>
 
-    <a-scene embedded vr-mode-ui="enabled: false">
+    <a-scene embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
         <a-assets>
             <img id="estadio" src="uploads/estadio.png" crossorigin="anonymous">
         </a-assets>
         <a-sky src="#estadio" rotation="0 -90 0"></a-sky>
-        <a-entity id="main-camera" camera look-controls></a-entity>
+        <a-entity id="main-camera" camera look-controls="magicWindowTrackingEnabled: true; touchEnabled: true;"></a-entity>
     </a-scene>
 
     <script src="script.js"></script>
