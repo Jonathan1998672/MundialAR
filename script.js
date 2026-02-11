@@ -14,27 +14,32 @@ const actionBar = document.getElementById('action-bar');
 const preview = document.getElementById('camera-preview');
 
 // 1. Activar la cámara dentro del cuadro
-scanBtn.addEventListener('click', function() {
+scanBtn.addEventListener('click', function(e) {
+    e.stopPropagation(); // Evita que el clic se propague a otros elementos
+    
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
     .then(function(stream) {
-        scanBtn.style.display = "none";
-        frame.style.display = "block"; // Aparece el cuadro cuadrado
+        scanBtn.style.setProperty("display", "none", "important");
+        frame.style.display = "block"; // Solo mostramos el cuadro
 
         let video = document.createElement('video');
         video.srcObject = stream;
         video.setAttribute("playsinline", true);
         video.play();
-        preview.innerHTML = ""; // Limpiar antes de agregar
+        preview.innerHTML = ""; 
         preview.appendChild(video);
     })
     .catch(err => alert("Error de cámara: " + err));
 });
 
 // 2. Al presionar el cuadro con la cámara, este desaparece y sale la barra
-frame.addEventListener('click', function() {
-    frame.style.display = "none";      // Desaparece el cuadro
-    reScanBtn.style.display = "flex";  // Aparece botón arriba derecha
-    actionBar.style.display = "flex";  // Aparece barra inferior
+frame.addEventListener('click', function(e) {
+    e.stopPropagation();
+    
+    frame.style.display = "none"; 
+    // Usamos setProperty para sobreescribir el !important del CSS
+    reScanBtn.style.setProperty("display", "flex", "important");
+    actionBar.style.setProperty("display", "flex", "important");
 });
 
 // 3. Reiniciar flujo

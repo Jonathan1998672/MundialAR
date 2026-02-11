@@ -33,10 +33,10 @@ a-scene {
     border: 4px solid #fff;
     border-radius: 20px;
     overflow: hidden;
-    display: none;  
+    display: none; /* Se activa por JS */
     background: black;
     box-shadow: 0 0 20px rgba(0,0,0,0.5);
-    cursor: pointer; /* Indica que se puede cliquear */
+    z-index: 1000;
 }
 
 #guide-icon {
@@ -58,10 +58,11 @@ a-scene {
     border-radius: 50%;
     background: white;
     border: none;
-    display: none; /* Inicialmente oculto */
+    display: none !important; /* Forzamos oculto */
     justify-content: center;
     align-items: center;
     box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
 }
 
 #re-scan-btn img { width: 25px; height: auto; }
@@ -70,12 +71,13 @@ a-scene {
 #action-bar {
     position: absolute;
     bottom: 40px;
-    display: none; /* Inicialmente oculta */
+    display: none !important; /* Forzamos oculto */
     gap: 20px;
     background: rgba(255,255,255,0.2);
     padding: 10px 20px;
     border-radius: 50px;
     backdrop-filter: blur(10px);
+    z-index: 1000;
 }
 
 .circle-btn {
