@@ -1,3 +1,4 @@
+/* Configuración General */
 a-scene {
     position: absolute;
     top: 0;
@@ -18,30 +19,30 @@ a-scene {
     pointer-events: none; 
 }
 
-#scanner-frame, #scan-button {
+#scanner-frame, #scan-button, #info-panel {
     pointer-events: auto; 
 }
 
-/* El botón ahora tiene un tamaño controlado */
+/* Botón de Escaneo Inicial */
 #scan-button {
     padding: 12px 24px;
     display: flex;
     align-items: center;
-    cursor: pointer;
-    background: white;
+    background: #004d40; /* Color temático futbolero */
+    color: white;
     border: none;
     border-radius: 50px;
     font-weight: bold;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
 }
 
 #scan-button img {
-    width: 25px; /* Evita que el botón sea gigante */
-    height: auto;
+    width: 25px;
     margin-right: 10px;
 }
 
-/* Contenedor cuadrado para la cámara */
+/* Visor Cuadrado */
 #scanner-frame {
     width: 280px;
     height: 280px; 
@@ -51,11 +52,64 @@ a-scene {
     display: none;   
     margin-bottom: 20px;
     background: black;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
 }
 
-#camera-preview, #camera-preview video {
+#camera-preview video {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Recorta la cámara para llenar el cuadrado */
+    object-fit: cover; 
+}
+
+/* Panel de Botones Circulares */
+#info-panel {
+    position: absolute;
+    bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.menu-circles {
+    display: flex;
+    gap: 25px;
+}
+
+.btn-circle {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.btn-circle:active { transform: scale(0.9); }
+
+.btn-circle img { width: 35px; height: auto; }
+
+/* Cuadro de Estadísticas */
+#stats-display {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 250px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+#stats-display h3 { margin-top: 0; color: #333; }
+
+.btn-close {
+    margin-top: 15px;
+    padding: 8px 15px;
+    border: none;
+    background: #cc0000;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
 }

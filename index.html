@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SoccRender AR</title>
+    <title>SoccRender AR - Mundial 2026</title>
     <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="margin: 0; overflow: hidden;">
@@ -13,19 +14,39 @@
         <div id="scanner-frame">
             <div id="camera-preview"></div>
         </div>
+
         <button id="scan-button">
-            <img src="uploads/scanner.png" alt="Scanner Icon">
-            <span>ESCANEAR</span>
+            <img src="uploads/scanner.png" alt="Icono">
+            <span>COMENZAR ESCANEO</span>
         </button>
+
+        <div id="info-panel" style="display: none;">
+            <div class="menu-circles">
+                <div class="btn-circle" id="btn-anim"><img src="uploads/anim-icon.png"></div>
+                <div class="btn-circle" id="btn-filtros"><img src="uploads/filter-icon.png"></div>
+                <div class="btn-circle" id="btn-stats"><img src="uploads/stats-icon.png"></div>
+            </div>
+            
+            <div id="stats-display" style="display: none;">
+                <h3 id="country-name"></h3>
+                <p id="country-data"></p>
+                <button onclick="cerrarStats()" class="btn-close">CERRAR</button>
+            </div>
+        </div>
     </div>
 
-    <a-scene embedded vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: true">
+    <a-scene embedded arjs="trackingMethod: best; sourceType: webcam; debugUIEnabled: false;" vr-mode-ui="enabled: false">
         <a-assets>
             <img id="estadio" src="uploads/estadio.png" crossorigin="anonymous">
         </a-assets>
 
-        <a-sky src="#estadio" rotation="0 -90 0"></a-sky>
+        <a-marker id="marker-mexico" type="pattern" url="markers/pattern-Seleccion-Mexicana.patt">
+        </a-marker>
 
+        <a-marker id="marker-japon" type="pattern" url="markers/pattern-Seleccion-Japon.patt">
+        </a-marker>
+
+        <a-sky src="#estadio" rotation="0 -90 0"></a-sky>
         <a-entity id="main-camera" camera look-controls="magicWindowTrackingEnabled: true; touchEnabled: true;"></a-entity>
     </a-scene>
 
