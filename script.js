@@ -50,18 +50,15 @@ const closeStats = document.getElementById('close-stats');
 const btnMatches = document.getElementById('btn-matches');
 const matchesContainer = document.getElementById('matches-container');
 
-// Abrir panel
 statsBtn.addEventListener('click', function(e) {
     e.stopPropagation();
     statsPanel.style.display = "flex";
 });
 
-// Cerrar panel
 closeStats.addEventListener('click', function() {
     statsPanel.style.display = "none";
 });
 
-// Mostrar partidos
 btnMatches.addEventListener('click', function() {
     matchesContainer.style.display = "block";
 });
