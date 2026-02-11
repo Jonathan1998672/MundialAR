@@ -1,28 +1,21 @@
 document.getElementById('scan-button').addEventListener('click', function() {
     const preview = document.getElementById('camera-preview');
     
-    // Solicitar acceso a la cámara del celular
+    // Pedimos la cámara
     navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
         .then(function(stream) {
-            // Crear el elemento video
+            // Si ya hay un video, no creamos otro
+            if (preview.querySelector('video')) return;
+
             let video = document.createElement('video');
             video.srcObject = stream;
-            video.setAttribute("playsinline", true); // Requerido para iOS
+            video.setAttribute("playsinline", true); 
             video.play();
             
-            // Estilo para que el video llene el recuadro pequeño
-            video.style.width = "100%";
-            video.style.height = "100%";
-            video.style.objectFit = "cover";
-
-            // Limpiar mensaje previo e insertar video
-            preview.innerHTML = "";
             preview.appendChild(video);
-            
-            console.log("Cámara activada en el recuadro central");
+            console.log("Escáner activado");
         })
         .catch(function(err) {
-            console.error("Error al acceder a la cámara: ", err);
-            alert("Para escanear, por favor permite el acceso a la cámara.");
+            alert("Error al acceder a la cámara. Revisa los permisos.");
         });
 });
