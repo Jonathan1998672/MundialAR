@@ -206,3 +206,8 @@ a-scene {
     border-radius: 10px;
     width: 100%;
 }
+
+.filter-controls button img {
+    width: 25px;
+    margin-right: 10px;
+}
