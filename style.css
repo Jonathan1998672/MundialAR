@@ -15,16 +15,47 @@ a-scene {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    pointer-events: none; /
+    pointer-events: none; 
 }
 
 #scanner-frame, #scan-button {
-    pointer-events: auto; /
+    pointer-events: auto; 
 }
 
-#camera-preview video {
+/* El botón ahora tiene un tamaño controlado */
+#scan-button {
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    background: white;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+#scan-button img {
+    width: 25px; /* Evita que el botón sea gigante */
+    height: auto;
+    margin-right: 10px;
+}
+
+/* Contenedor cuadrado para la cámara */
+#scanner-frame {
+    width: 280px;
+    height: 280px; 
+    border: 4px solid #fff;
+    border-radius: 20px;
+    overflow: hidden; 
+    display: none;   
+    margin-bottom: 20px;
+    background: black;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+#camera-preview, #camera-preview video {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    border-radius: 15px;
+    object-fit: cover; /* Recorta la cámara para llenar el cuadrado */
 }
