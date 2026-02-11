@@ -5,6 +5,7 @@ a-scene {
     width: 100%;
     height: 100%;
     z-index: 1;
+    pointer-events: none;
 }
 
 #ui-container {
@@ -20,13 +21,14 @@ a-scene {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    pointer-events: none;
+    pointer-events: auto;
 }
 
 #scanner-frame,
 #scan-button,
 #re-scan-btn,
 #stats-panel,
+#stats-panel button,
 .circle-btn {
     pointer-events: auto;
 }
